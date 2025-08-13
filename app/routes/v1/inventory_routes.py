@@ -145,9 +145,6 @@ async def create_inventory(
 
     exist_data = await GetOneData(db.inventories, exist_query)
     if exist_data:
-        payload["description"] = (
-            exist_data.get("description", "") + "\n" + payload.get("description", "")
-        )
         result = await UpdateOneData(
             db.inventories,
             exist_query,
